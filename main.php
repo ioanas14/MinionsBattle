@@ -153,7 +153,7 @@ do {
                 echo nl2br("\n");
 
                 if($playerEvil->getHealth() < 0){
-                    echo 'Tim HAS WON THE BATTLE!';
+                    echo '<h3> Tim HAS WON THE BATTLE! </h3>';
                     echo "\n";
                     exit(); // ending the game
                 }
@@ -193,7 +193,7 @@ do {
                 echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
-                    echo nl2br("Evil HAS WON THE BATTLE!");
+                    echo '<h3> Evil HAS WON THE BATTLE! </h3>';
                     exit();
                 }
 
@@ -233,7 +233,7 @@ do {
                 echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
-                    echo 'Evil HAS WON THE BATTLE!';
+                    echo '<h3> Evil HAS WON THE BATTLE! </h3>';
                     echo nl2br("\n");
                     exit();
                 }
@@ -271,7 +271,7 @@ do {
                 echo nl2br("\n");
 
                 if($playerEvil->getHealth() < 0){
-                    echo 'Tim HAS WON THE BATTLE!';
+                    echo '<h3> Tim HAS WON THE BATTLE! </h3>';
                     exit(); // ending the game
                 }
             }
@@ -312,7 +312,7 @@ do {
             echo nl2br("\n");
 
             if($playerEvil->getHealth() < 0){
-                echo 'Tim HAS WON THE BATTLE!';
+                echo '<h3> Tim HAS WON THE BATTLE! </h3>';
                 exit(); // ending the game
             }
         }
@@ -349,7 +349,7 @@ do {
                 echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
-                    echo 'Evil HAS WON THE BATTLE!';
+                    echo '<h3> Evil HAS WON THE BATTLE! </h3>';
                     echo nl2br("\n");
                     exit();
                 }
@@ -391,7 +391,7 @@ do {
                 echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
-                    echo 'Evil HAS WON THE BATTLE!';
+                    echo '<h3> Evil HAS WON THE BATTLE! </h3>';
                     echo nl2br("\n");
                     exit();
                 }
@@ -429,7 +429,7 @@ do {
             echo nl2br("\n");
 
             if($playerEvil->getHealth() < 0){
-                echo 'Tim HAS WON THE BATTLE!';
+                echo '<h3> Tim HAS WON THE BATTLE! </h3>';
                 exit(); // ending the game
             }
         }
@@ -438,10 +438,10 @@ do {
 } while($turns <= 20);
 
 if($playerTim->getHealth() < $playerEvil->getHealth()){
-    echo 'Tim HAS WON THE BATTLE!';
+    echo '<h3> Tim HAS WON THE BATTLE! </h3>';
 }
 else{
-    echo 'Evil HAS WON THE BATTLE!';
+    echo '<h3> Evil HAS WON THE BATTLE! </h3>';
 }
 
 ?>
