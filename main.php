@@ -85,6 +85,8 @@ $playerEvil = new Evil();
 $turns = 0; // maximum 20 turns
 $count = 0; // for counting which player attacks
 $damage = 0;
+$luckEvil = 0;
+$luckTim = 0;
 
 
 echo '<h1>' . 'Start of battle' . '</h1>';
@@ -121,8 +123,9 @@ do {
         if($playerTim->getLuck() > $playerEvil->getLuck()){
             // when count == 0, Tim attacks
             if($count == 0){
-                echo 'Tim attacks!';
-                echo '<br/>';
+                echo '<h3> TURN ' . $turns . '</h3>';
+                echo nl2br("\n");
+                echo nl2br("Tim attacks!\n");
                 
                 $turns++;
                 $damage = $playerTim->getStrength() - $playerEvil->getDefense(); // calculating the damage
@@ -131,25 +134,23 @@ do {
                 if($playerTim->bananaStrike()){
                     $damage = $damage * 2;
                     $turns++; // Tim strikes twice
-                    echo 'Tim has BANANA STRIKE: he attacks twice!';
-                    echo "\n";
+                    echo nl2br("Tim has BANANA STRIKE: he attacks twice!\n");;
                 }
                  // checking to see if Evil is lucky
-                 if($playerEvil->getLuck() == 40){
-                    echo 'Evil is lucky! DAMAGE = 0.';
-                    echo "\n";
+                 if($playerEvil->getLuck() == 40 && $luckEvil == 0){
+                    echo nl2br("Evil is lucky! DAMAGE = 0.");
                     $damage = 0;
-                    break;
+                    $luckEvil = 1;
                 }
 
                 // setting the new value for Evil's health
                 $playerEvil->setHealth($playerEvil->getHealth() - $damage);
                 $count++; // Evil's turn to attack
 
-                echo 'Damage: ' . $damage;
-                echo "\n";
+                echo "Damage: " . $damage;
+                echo nl2br("\n");
                 echo "Evil's health:" . $playerEvil->getHealth();
-                echo "\n";
+                echo nl2br("\n");
 
                 if($playerEvil->getHealth() < 0){
                     echo 'Tim HAS WON THE BATTLE!';
@@ -160,10 +161,10 @@ do {
 
             // if the count is 1, Evil attacks
             if($count == 1){
-
-                echo "\n";
+                echo '<h3> TURN ' . $turns . '</h3>';
+                echo nl2br("\n");
                 echo 'Evil attacks!';
-                echo "\n";
+                echo nl2br("\n");
                 $turns++;
 
                 $damage = $playerEvil->getStrength() - $playerTim->getDefense();
@@ -172,12 +173,13 @@ do {
                 if($playerTim->umbrellaShield()){
                     $damage = $damage / 2;
                     echo 'Tim uses the UMBRELLA SHIELD!';
-                    echo "\n";
+                    echo nl2br("\n");
                 }
 
-                if($playerTim->getLuck() == 30){
+                if($playerTim->getLuck() == 30 && $luckTim == 0){
                     echo 'Tim is LUCKY! DAMAGE = 0.';
-                    echo "\n";
+                    echo nl2br("\n");
+                    $luckTim = 1;
                     $damage = 0;
                 }
 
@@ -186,12 +188,12 @@ do {
                 $count = 0;
 
                 echo 'Damage: ' . $damage;
-                echo "<br>";
+                echo nl2br("\n");
                 echo "Tim's health: " . $playerTim->getHealth();
-                echo "\n";
+                echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
-                    echo 'Evil HAS WON THE BATTLE!';
+                    echo nl2br("Evil HAS WON THE BATTLE!");
                     exit();
                 }
 
@@ -201,7 +203,10 @@ do {
         // if Evil has greater luck than Tim
         else{
             if($count == 0){
+                echo '<h3> TURN ' . $turns . '</h3>';
+                echo nl2br("\n");
                 echo 'Evil attacks!';
+                echo nl2br("\n");
                 $turns++;
 
                 $damage = $playerEvil->getStrength() - $playerTim->getDefense();
@@ -209,10 +214,13 @@ do {
                 if($playerTim->umbrellaShield()){
                     $damage = $damage / 2;
                     echo 'Tim uses the UMBRELLA SHIELD!';
+                    echo nl2br("\n");
                 }
 
-                if($playerTim->getLuck() == 30){
+                if($playerTim->getLuck() == 30 && $luckTim == 0){
                     echo 'Tim is LUCKY! DAMAGE = 0.';
+                    echo nl2br("\n");
+                    $luckTim = 1;
                     $damage = 0;
                 }
 
@@ -220,18 +228,21 @@ do {
                 $playerTim->setHealth($playerTim->getHealth() - $damage);
 
                 echo 'Damage: ' . $damage;
-                echo "
-                ";
+                echo nl2br("\n");
                 echo "Tim's health: " . $playerTim->getHealth();
+                echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
                     echo 'Evil HAS WON THE BATTLE!';
+                    echo nl2br("\n");
                     exit();
                 }
             }
 
             if($count == 1){
-                echo 'Tim attacks!';
+                echo '<h3> TURN ' . $turns . '</h3>';
+                echo nl2br("\n");
+                echo nl2br("Tim attacks!\n");
                 $turns++;
                 $damage = $playerTim->getStrength() - $playerEvil->getDefense(); // calculating the damage
 
@@ -240,12 +251,14 @@ do {
                     $damage = $damage * 2;
                     $turns++; // Tim strikes twice
                     echo 'Tim has BANANA STRIKE: he attacks twice!';
+                    echo nl2br("\n");
                 }
                  // checking to see if Evil is lucky
-                 if($playerEvil->getLuck() == 40){
+                 if($playerEvil->getLuck() == 40 && $luckEvil == 0){
                     echo 'Evil is lucky! DAMAGE = 0.';
+                    echo nl2br("\n");
                     $damage = 0;
-                    break;
+                    $luckEvil = 1;
                 }
 
                 // setting the new value for Evil's health
@@ -253,9 +266,9 @@ do {
                 $count = 0; 
 
                 echo 'Damage: ' . $damage;
-                echo "
-                ";
+                echo nl2br("\n");
                 echo "Evil's health:" . $playerEvil->getHealth();
+                echo nl2br("\n");
 
                 if($playerEvil->getHealth() < 0){
                     echo 'Tim HAS WON THE BATTLE!';
@@ -269,7 +282,9 @@ do {
     if($playerTim->getSpeed() > $playerEvil->getSpeed()){
         
         if($count == 0){
-            echo 'Tim attacks!';
+            echo '<h3> TURN ' . $turns . '</h3>';
+            echo nl2br("\n");
+            echo nl2br("Tim attacks!\n");
             $turns++;
 
             $damage = $playerTim->getStrength() - $playerEvil->getDefense();
@@ -278,30 +293,35 @@ do {
                 $damage = $damage * 2;
                 $turns++;
                 echo 'Tim has BANANA STRIKE: he attacks twice!';
+                echo nl2br("\n");
             }
 
-            if($playerEvil->getLuck() == 40){
+            if($playerEvil->getLuck() == 40 && $luckEvil == 0){
                 echo 'Evil is lucky! DAMAGE = 0.';
+                $luckEvil = 1;
+                echo nl2br("\n");
                 $damage = 0;
-                break;
             }
 
             $playerEvil->setHealth($playerEvil->getHealth() - $damage);
-                $count = 0; 
+            $count++; 
 
-                echo 'Damage: ' . $damage;
-                echo "
-                ";
-                echo "Evil's health:" . $playerEvil->getHealth();
+            echo 'Damage: ' . $damage;
+            echo nl2br("\n");
+            echo "Evil's health:" . $playerEvil->getHealth();
+            echo nl2br("\n");
 
-                if($playerEvil->getHealth() < 0){
-                    echo 'Tim HAS WON THE BATTLE!';
-                    exit(); // ending the game
-                }
+            if($playerEvil->getHealth() < 0){
+                echo 'Tim HAS WON THE BATTLE!';
+                exit(); // ending the game
+            }
         }
 
         if($count == 1){
-            echo 'Evil attacks!';
+            echo '<h3> TURN ' . $turns . '</h3>';
+            echo nl2br("\n");
+                echo 'Evil attacks!';
+                echo nl2br("\n");
                 $turns++;
 
                 $damage = $playerEvil->getStrength() - $playerTim->getDefense();
@@ -309,10 +329,13 @@ do {
                 if($playerTim->umbrellaShield()){
                     $damage = $damage / 2;
                     echo 'Tim uses the UMBRELLA SHIELD!';
+                    echo nl2br("\n");
                 }
 
-                if($playerTim->getLuck() == 30){
+                if($playerTim->getLuck() == 30 && $luckTim == 0){
                     echo 'Tim is LUCKY! DAMAGE = 0.';
+                    echo nl2br("\n");
+                    $luckTim = 1;
                     $damage = 0;
                 }
 
@@ -321,12 +344,13 @@ do {
                 $count = 0;
 
                 echo 'Damage: ' . $damage;
-                echo "
-                ";
+                echo nl2br("\n");
                 echo "Tim's health: " . $playerTim->getHealth();
+                echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
                     echo 'Evil HAS WON THE BATTLE!';
+                    echo nl2br("\n");
                     exit();
                 }
         }
@@ -336,7 +360,10 @@ do {
     if($playerTim->getSpeed() < $playerEvil->getSpeed()){
         
         if($count == 0){
-            echo 'Evil attacks!';
+            echo '<h3> TURN ' . $turns . '</h3>';
+            echo nl2br("\n");
+                echo 'Evil attacks!';
+                echo nl2br("\n");
                 $turns++;
 
                 $damage = $playerEvil->getStrength() - $playerTim->getDefense();
@@ -344,11 +371,14 @@ do {
                 if($playerTim->umbrellaShield()){
                     $damage = $damage / 2;
                     echo 'Tim uses the UMBRELLA SHIELD!';
+                    echo nl2br("\n");
                 }
 
-                if($playerTim->getLuck() == 30){
+                if($playerTim->getLuck() == 30 && $luckTim == 0){
                     echo 'Tim is LUCKY! DAMAGE = 0.';
+                    echo nl2br("\n");
                     $damage = 0;
+                    $luckTim = 1;
                 }
 
                 // recalculating Tim's health
@@ -356,18 +386,22 @@ do {
                 $count++;
 
                 echo 'Damage: ' . $damage;
-                echo "
-                ";
+                echo nl2br("\n");
                 echo "Tim's health: " . $playerTim->getHealth();
+                echo nl2br("\n");
 
                 if($playerTim->getHealth() < 0){
                     echo 'Evil HAS WON THE BATTLE!';
+                    echo nl2br("\n");
                     exit();
                 }
         }
 
         if($count == 1){
-            echo 'Tim attacks!';
+            echo '<h3> TURN ' . $turns . '</h3>';
+            echo nl2br("\n");
+            echo nl2br("Tim attacks!");
+            echo nl2br("\n");
             $turns++;
 
             $damage = $playerTim->getStrength() - $playerEvil->getDefense();
@@ -376,22 +410,23 @@ do {
                 $damage = $damage * 2;
                 $turns++;
                 echo 'Tim has BANANA STRIKE: he attacks twice!';
+                echo nl2br("\n");
             }
 
-            if($playerEvil->getLuck() == 40){
+            if($playerEvil->getLuck() == 40 && $luckEvil == 0){
                 echo 'Evil is lucky! DAMAGE = 0.';
+                echo nl2br("\n");
                 $damage = 0;
-                break;
+                $luckEvil = 1;
             }
 
             $playerEvil->setHealth($playerEvil->getHealth() - $damage);
             $count = 0;
 
             echo 'Damage: ' . $damage;
-            echo "
-
-            ";
+            echo nl2br("\n");
             echo "Evil's health:" . $playerEvil->getHealth();
+            echo nl2br("\n");
 
             if($playerEvil->getHealth() < 0){
                 echo 'Tim HAS WON THE BATTLE!';
@@ -401,5 +436,12 @@ do {
     }
 
 } while($turns <= 20);
+
+if($playerTim->getHealth() < $playerEvil->getHealth()){
+    echo 'Tim HAS WON THE BATTLE!';
+}
+else{
+    echo 'Evil HAS WON THE BATTLE!';
+}
 
 ?>
