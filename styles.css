@@ -1,5 +1,6 @@
 body{
-    background-color:beige;
+    background: rgb(118,14,222);
+    background: linear-gradient(90deg, rgba(118,14,222,1) 0%, rgba(237,230,22,1) 65%);
 }
 
 h1{
@@ -28,16 +29,19 @@ h1{
   }
 
   .columnTim{
-      background-color: yellow;
+      background-color:khaki;
       display: flex;
+      text-align: center;
       width: 400px;
+      border-radius: 7px;
   }
 
   .columnEvil{
       display: flex;
-      background-color: purple;
+      background-color: #980ede;
       text-align: center;
       width: 400px;
+      border-radius: 7px;
   }
 
  img{
@@ -47,15 +51,13 @@ h1{
  }
 
  .battleContent{
-     background-color:rosybrown;
+     
      text-align: center;
  }
 
- h2{
-     color: red;
- }
+ 
 
  h3{
-     color:royalblue;
+     
  }
 
