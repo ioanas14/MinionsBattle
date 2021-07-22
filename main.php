@@ -104,30 +104,48 @@ $luckTim = 0;
 
 
 echo '<h1>' . 'Start of battle' . '</h1>';
-echo "<img src='photo.jpg'>";
+
 
 // displaying the players' skills
-echo '<h2>' . "Tim's skills:" . '</h2>';
-echo '<ul>';
-echo '<li> Health: ' . $playerTim->getHealth() . '</li>';
-echo '<li> Strength: ' . $playerTim->getStrength() . '</li>';
-echo '<li> Defense: ' . $playerTim->getDefense() . '</li>';
-echo '<li> Speed: ' . $playerTim->getSpeed() . '</li>';
-echo '<li> Luck: ' . $playerTim->getLuck() . '</li>';
-echo '</ul>';
+echo '<div class="page-wrap">';
+    echo "<div class='row'>";
 
-echo '<h2>' . "Evil's skills:" . '</h2>';
-echo '<ul>';
-echo '<li> Health: ' . $playerEvil->getHealth() . '</li>';
-echo '<li> Strength: ' . $playerEvil->getStrength() . '</li>';
-echo '<li> Defense: ' . $playerEvil->getDefense() . '</li>';
-echo '<li> Speed: ' . $playerEvil->getSpeed() . '</li>';
-echo '<li> Luck: ' . $playerEvil->getLuck() . '</li>';
-echo '</ul>';
-echo "\n";
+        echo "<div class='column'>";
+            echo "<div class='columnTim'>";
+                echo '<h2>' . "Tim's skills:" . '</h2>';
+                echo '<ul>';
+                echo '<li> Health: ' . $playerTim->getHealth() . '</li>';
+                echo '<li> Strength: ' . $playerTim->getStrength() . '</li>';
+                echo '<li> Defense: ' . $playerTim->getDefense() . '</li>';
+                echo '<li> Speed: ' . $playerTim->getSpeed() . '</li>';
+                echo '<li> Luck: ' . $playerTim->getLuck() . '</li>';
+                echo '</ul>';  
+                echo "<img src='tim.png' />";    
+            echo "</div>";
+           
+        echo '</div>';
+
+        echo "<div class='column'>";
+             echo "<div class='columnEvil'>";
+                echo '<h2>' . "Evil's skills:" . '</h2>';
+                echo '<ul>';
+                echo '<li> Health: ' . $playerEvil->getHealth() . '</li>';
+                echo '<li> Strength: ' . $playerEvil->getStrength() . '</li>';
+                echo '<li> Defense: ' . $playerEvil->getDefense() . '</li>';
+                echo '<li> Speed: ' . $playerEvil->getSpeed() . '</li>';
+                echo '<li> Luck: ' . $playerEvil->getLuck() . '</li>';
+                echo '</ul>';
+                echo "<img src='evil.png'/>";
+            echo '</div>';
+            
+        echo '</div>';  
+
+    echo '</div>';
+echo "</div>";
 
 // the actions repeat for 20 turns (or less, if one of the players wins before the 20th turn)
 
+echo "<div class='battleContent'>";
 do {
     // if the players have equal speeds
     if($playerEvil->getSpeed() == $playerTim->getSpeed()){
@@ -455,6 +473,8 @@ if($playerTim->getHealth() < $playerEvil->getHealth()){
 else{
     echo '<h3> Evil HAS WON THE BATTLE! </h3>';
 }
+
+echo "</div>";
 
 ?>
 

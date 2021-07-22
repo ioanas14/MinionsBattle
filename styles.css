@@ -1,4 +1,61 @@
-img {
-    position: absolute;
-    right: 0%;
+body{
+    background-color:beige;
 }
+
+h1{
+   text-align: center;
+}
+
+.page-wrap{
+    margin: 15px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 0 1 auto;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .columnTim{
+      background-color: yellow;
+      display: flex;
+      width: 400px;
+  }
+
+  .columnEvil{
+      display: flex;
+      background-color: purple;
+      text-align: center;
+      width: 400px;
+  }
+
+ img{
+     height: 150px;
+     width: 100px;
+     float: right;
+ }
+
+ .battleContent{
+     background-color:rosybrown;
+     text-align: center;
+ }
+
+ h2{
+     color: red;
+ }
+
+ h3{
+     color:royalblue;
+ }
+
