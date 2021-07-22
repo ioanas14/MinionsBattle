@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+<?php include 'styles.css'; ?>
+</style>
+
+</head>
+
+<body>
+
+
 <?php
 
 class Player{
@@ -90,9 +104,7 @@ $luckTim = 0;
 
 
 echo '<h1>' . 'Start of battle' . '</h1>';
-echo "
-
-";
+echo "<img src='photo.jpg'>";
 
 // displaying the players' skills
 echo '<h2>' . "Tim's skills:" . '</h2>';
@@ -445,3 +457,6 @@ else{
 }
 
 ?>
+
+</body>
+</html>
