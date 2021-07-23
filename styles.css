@@ -4,7 +4,13 @@ body{
 }
 
 h1{
+    color: green;
    text-align: center;
+   text-shadow: -1px 0 rgb(0, 0, 0), 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h1:hover{
+    color:palevioletred;
 }
 
 .page-wrap{
@@ -17,6 +23,7 @@ h1{
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    margin-bottom: 60px;
   }
   
   .column {
@@ -34,6 +41,7 @@ h1{
       text-align: center;
       width: 400px;
       border-radius: 7px;
+      padding: 5px;
   }
 
   .columnEvil{
@@ -42,22 +50,47 @@ h1{
       text-align: center;
       width: 400px;
       border-radius: 7px;
+      padding: 5px;
+      transition: transform .2s;
   }
+
+  .columnTim:hover{
+    background-color: coral;
+    box-shadow: cyan 2px 2px;
+  }
+
+    .columnEvil:hover{
+    background-color: coral;
+    box-shadow: cyan 2px 2px;
+    transition: transform .2s;
+    }
 
  img{
      height: 150px;
      width: 100px;
      float: right;
+     
  }
+
+ .columnEvil:hover {
+    transform: scale(1.2); 
+  }
+
+  .columnTim:hover {
+    transform: scale(1.2); 
+  }
 
  .battleContent{
-     
      text-align: center;
+     border-radius: 10px;
+     margin-left: 300px;
+     margin-right: 300px;
+     margin-bottom: 20px;
+     margin-top: 20px;
+     transition: transform .2s;
  }
 
- 
-
- h3{
-     
+ .battleContent:hover{
+     background-color:rgba(255, 255, 0, 0.336);
+     transform: scale(1.1);
  }
-
